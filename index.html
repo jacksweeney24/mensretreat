@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life’s Purpose Men’s Retreat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Add this line to include Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Typography */
+        body {
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;    
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 0;
+        }
+
+        /* Navigation */
+        nav {
+            background: transparent;
+            padding: 1rem 0;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #007BFF;
+        }
+
+        /* Add this new style for the logo */
+        nav .logo h2 {
+            color: #fff;
+        }
+
+        /* Hero Section */
+        #hero {
+            height: 100vh;
+            background: url('atx2.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        #hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+
+        #hero .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        /* Add this new media query for mobile devices */
+        @media (max-width: 768px) {
+            #hero .content {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        /* Sections */
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-light {
+            background: #fff;
+        }
+
+        .section-dark {
+            background: #f0f4f8;
+        }
+
+        /* Content Alignment */
+        .text-center {
+            text-align: center;
+        }
+
+        /* Guides Section */
+        .guides, .co-facilitators {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            max-width: 1400px; /* Increase the max-width */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .guide {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            flex: 1 1 400px; /* Allow items to grow and set a larger base width */
+            max-width: 600px; /* Increase max-width for larger screens */
+            text-align: center;
+        }
+
+        .guide img {
+            width: 300px;  /* Increase image size */
+            height: 300px; /* Increase image size */
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+        }
+
+        /* Add media queries for responsiveness */
+        @media (max-width: 1200px) {
+            .guide {
+                flex: 1 1 300px; /* Adjust base width for medium screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .guide {
+                flex: 1 1 100%; /* Full width on small screens */
+                max-width: none;
+            }
+
+            .guide img {
+                width: 250px; /* Slightly smaller images on mobile */
+                height: 250px;
+            }
+        }
+
+        /* Pillars */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem; /* Add this line to create space below the grid */
+        }
+
+        .pillar {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center; /* Change this from 'left' to 'center' */
+        }
+
+        .pillar h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .pillar p {
+            margin-bottom: 1rem;
+            text-align: left;
+        }
+
+        /* Responsive adjustment for smaller screens */
+        @media (max-width: 768px) {
+            .pillars {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pillars {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Location Section */
+        .location-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .location-images img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Pricing */
+        .pricing {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .pricing-option {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            max-width: 350px;
+            text-align: center;
+        }
+
+        .pricing-option h3 {
+            margin-bottom: 1rem;
+            color: #3498db;
+        }
+
+        .pricing-option ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-option ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                background: #fff;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                display: none;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+                cursor: pointer;
+            }
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #apply {
+            padding: 8rem 0; /* Increase padding top and bottom */
+            margin-bottom: 0;
+        }
+
+        footer {
+            margin-top: 0;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+
+        .section-light:last-of-type {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .email-address {
+            color: #007BFF; /* This is a blue color, you can adjust as needed */
+            font-weight: bold;
+        }
+
+        /* If the section background is dark, use this instead */
+        .section-dark .email-address {
+            color: #40A9FF; /* A lighter blue for better contrast on dark backgrounds */
+        }
+
+        /* Add this new style for the pillar icons */
+        .pillar i {
+            font-size: 2.5rem;
+            color: #000; /* Changed from #e67e22 to black */
+            margin-bottom: 1rem;
+            display: block; /* Add this line */
+        }
+
+        /* Add this new style for the pillar titles */
+        .pillar h3 {
+            font-family: 'Playfair Display', serif; /* Same font as the hero section */
+            font-weight: 700; /* Bold weight */
+            color: #2c3e50; /* Matching the color of other headings */
+            margin-bottom: 1rem;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Changed to 3 columns */
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .activity-item {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .activity-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-item i {
+            font-size: 2rem;
+            color: #3498db;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-item span {
+            display: block;
+            font-weight: bold;
+        }
+
+        /* Add responsive adjustments */
+        @media (max-width: 768px) {
+            .activities-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .activities-grid {
+                grid-template-columns: 1fr; /* 1 column on small screens */
+            }
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-spaced {
+            margin-top: 2rem; /* Increase this value for more space */
+        }
+
+        /* Exclude the hero section button from this spacing */
+        #hero .btn-spaced {
+            margin-top: 0;
+        }
+
+        /* Add this new style for pillar paragraphs */
+        .pillar p {
+            text-align: left;
+        }
+
+        /* Hamburger menu styles */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #fff;
+            margin: 2px 0;
+            transition: 0.4s;
+        }
+
+        /* Mobile menu styles */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px; /* Increased to move the menu down */
+                left: 0;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.9);
+                padding: 20px 0;
+                border-radius: 15px 15px 15px 15px; /* Add rounded corners to bottom */
+                overflow: hidden; /* Ensure content doesn't overflow rounded corners */
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            /* Ensure the hamburger stays visible */
+            nav .container {
+                position: relative;
+                z-index: 1001;
+            }
+
+            /* Adjust the z-index of the dropdown menu */
+            nav ul {
+                z-index: 1000;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <h2>Men's Retreat</h2>
+            </div>
+            <ul id="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#guides">Guides</a></li>
+                <li><a href="#pillars">Pillars</a></li>
+                <li><a href="#location">Location</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="content">
+                <h1>Life's Purpose Men's Retreat</h1>
+                <p>Discover your purpose, step into your power, connect with like-minded men, and unlock your potential.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn">APPLY HERE</a>
+                <p style="margin-top:2rem;">November 21-24 | Austin, Texas</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section-light fade-in">
+            <div class="container text-center">
+                <h2>Do you want to discover your unique gifts?</h2>
+                <p>Do you want to uncover your highest purpose?</p>
+                <p>Do you want to accelerate your personal development, career trajectory, and spiritual growth?</p>
+                <p>Do you want to wake up every day full of energy and inspiration, knowing you’re living the life you were always meant to?</p>
+                <p>You’ve come to the right place.</p>
+                <p>Our men’s retreat in Austin is designed for every man to gain clarity on his mission, discover his unique gifts, step into his power, and leave at a higher frequency than ever before.</p>
+                <p>When you get 15+ men striving for their highest selves in a mansion together for a weekend, magical things happen.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn btn-spaced">APPLY</a>
+            </div>
+        </section>
+
+        <!-- Guides Section -->
+        <section id="guides" class="section-dark fade-in">
+            <div class="container text-center">
+                <h2>Meet Your Guides</h2>
+                <div class="guides">
+                    <div class="guide">
+                        <img src="jackmoses.jpg" alt="Jack Moses">
+                        <h3>Jack Moses</h3>
+                        <p>Jack is a writer, creator, podcaster, and educator. He left Northwestern, a D1 football career, and a high-status finance career path at 21 to pursue internet writing, performance coaching, and digital entrepreneurship and has been traveling the world writing, creating, and teaching ever since.</p>
+                        <p>He is now the founder of Conscious Creators ~ The creator economy's school for positive-sum wealth creation and consciousness elevation.</p>
+                        <p>His mission is to open minds and hearts, empower individuals to get paid for becoming their fullest selves, and guide them towards actualizing their highest potential.</p>
+                    </div>
+                    <div class="guide">
+                        <img src="camhogan.jpg" alt="Cameron Hogan">
+                        <h3>Cameron Hogan</h3>
+                        <p>Cameron is a coach, creator, writer, podcast host, and retreat leader.</p>
+                        <p>After discovering his spiritual gifts, he left the corporate world to create businesses and communities focused on personal development and spirituality. Cameron helps men reconnect with their divine masculinity, raise their vibration, and build habits for lasting success.</p>
+                        <p>As the host of the Listen Before Love podcast and founder of Great Morning, he now focuses on creating transformative experiences that promote growth in men through spiritual development and personal empowerment.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pillars Section -->
+        <section id="pillars" class="section-light fade-in">
+            <div class="container text-center">
+                <h2>The 6 Pillars</h2>
+                <div class="pillars">
+                    <div class="pillar">
+                        <i class="fas fa-brain"></i>
+                        <h3>1. PONDER</h3>
+                        <p>It is often blindspots and subconscious beliefs and stories from the past that are keeping us from living the lives we want.</p>
+                        <p>Through journaling prompts, group discussions, and deep introspection, we will reflect on our past, connect with our inner child, forgive past actions of ourselves and of others, and let go of what is keeping us from living our dream lives as our highest selves.</p>
+                    </div>
+                    <div class="pillar">
+                        <i class="fas fa-om"></i>
+                        <h3>2. PRESENCE</h3>
+                        <p>The present moment is the key to unlocking a beautiful relationship with life.</p>
+                        <p>We will drop deeply into Presence through techniques like mindful awareness, meditation, silent walks, and unconditional love to let go of stuck emotions and stories from the past that keep us from being fully present in our daily lives.</p>
+                        <p>You will carry these techniques with you for the rest of your life.</p>
+                    </div>
+                    <div class="pillar">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>3. PLAY</h3>
+                        <p>Remember when you were a kid and had unlimited energy? You could play all day and never feel tired.</p>
+                        <p>That energy is still within you.</p>
+                        <p>Through sports, games, exercise, and exploring creative movement, you will unlock the playfulness within you that will fuel the creation of your desired business, relationships, and lifestyle.</p>
+                    </div>
+                    <div class="pillar">
+                        <i class="fas fa-rocket"></i>
+                        <h3>4. POTENTIAL</h3>
+                        <p>From this elevated frequency and through letting go of the ceilings we've placed on ourselves via conditioning, programming, and stories, our potential shines forth.</p>
+                        <p>Who could you be, and what would you create without fear? Without scarcity? Without seeking external validation?</p>
+                        <p>You will uncover these answers during the retreat.</p>
+                    </div>
+                    <div class="pillar">
+                        <i class="fas fa-fist-raised"></i>
+                        <h3>5. POWER</h3>
+                        <p>Every man has a Divine King within him. Many of us have just forgotten.</p>
+                        <p>Through exercises and discussions around Divine Masculinity and the King archetype, our aim is to empower you to reclaim your intrinsic Power, step into your King energy, claim yourself as the Hero of your own journey, and write the story for your future.</p>
+                    </div>
+                    <div class="pillar">
+                        <i class="fas fa-compass"></i>
+                        <h3>6. PURPOSE</h3>
+                        <p>Once our internal state is elevated to a higher frequency than ever before (via pondering, playing, and becoming present), and we realize who we could be as our highest selves (our potential), our purpose becomes clear.</p>
+                        <p>Everyone on this earth has a purpose. And as a man, your purpose is your #1 priority.</p>
+                        <p>Our mission is to provide the container and connections for you to unlock your deepest purpose, your reason for being on this earth.</p>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn btn-spaced">APPLY</a>
+            </div>
+        </section>
+
+        <!-- Co-Facilitators Section -->
+        <section id="co-facilitators" class="section-dark fade-in">
+            <div class="container text-center">
+                <h2>Meet Your Co-Facilitators</h2>
+                <div class="co-facilitators">
+                    <div class="guide">
+                        <img src="justinlovato.jpg" alt="Justin Lovato">
+                        <h3>Justin Lovato</h3>
+                        <p>Justin Lovato is a coach, facilitator, and retreat leader dedicated to guiding individuals on their journey to deeper self-awareness and mindfulness. Recognized as one of the top 50 personal trainers in the world, Justin brings unparalleled expertise to personal development and fitness.</p>
+                        <p>With a focus on simplifying behaviors, fostering presence, and harnessing the power of breathwork, Justin helps others cultivate cognitive clarity and gain transformative new perspectives. His approach promotes heart and mind coherence, creating a harmonious balance of love, peace, and well-being.</p>
+                    </div>
+                    <div class="guide">
+                        <img src="roccodipierto.jpg" alt="Rocco Dipierto">
+                        <h3>Rocco Dipierto</h3>
+                        <p>Medicine Man, Breathworker, Intuitive guide & healer.</p>
+                        <p>Rocco, a former COO of a multimillion-dollar company, has transformed into an intuitive guide and healer. If you had asked him a decade ago if this is where he'd be, he might have thought you were crazy. However, a profound spiritual awakening revealed latent gifts and abilities, guiding him to his true calling: serving as a way-shower, guide, and healer for others. Trained in multiple lineages and trauma-informed practices, Rocco blends wisdom and empathy in his work. His presence fosters a sense of safety and gentle masculinity, encouraging others to awaken to the fullness of their BEing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Activities Section -->
+        <section id="activities" class="section-light">
+            <div class="container text-center">
+                <h2>Activities</h2>
+                <p class="lead">Each activity is designed to elevate your frequency, energy, and presence, so that clarity on your purpose and potential shine forth.</p>
+                <p>Here are some activities we'll have throughout our 4 days:</p>
+                <div class="activities-grid">
+                    <div class="activity-item">
+                        <i class="fas fa-running"></i>
+                        <span>Sports</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-wind"></i>
+                        <span>Breathwork</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <span>Group Workouts</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>(Optional) Fasting</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-om"></i>
+                        <span>Meditation Circles</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-comments"></i>
+                        <span>Discussion Circles</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-pen-fancy"></i>
+                        <span>Journaling Prompts</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-book-open"></i>
+                        <span>Spiritual Text Breakdowns</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <span>Purpose Discovery Sessions</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Career & Wealth Strategy Sessions</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-couch"></i>
+                        <span>Free time to relax and connect</span>
+                    </div>
+                </div>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn btn-spaced" style="margin-top: 2rem;">APPLY</a>
+            </div>
+        </section>
+
+        <!-- Location Section -->
+        <section id="location" class="section-dark">
+            <div class="container text-center">
+                <h2>The Location</h2>
+                <p>We will be staying at an AirBnB mansion about 45 minutes outside of Austin.</p>
+                <div class="location-images">
+                    <img src="abnb1.jpg" alt="Airbnb Location View 1">
+                    <img src="abnb2.jpg" alt="Airbnb Location View 2">
+                    <img src="abnb3.jpg" alt="Airbnb Location View 3">
+                    <img src="abnb4.jpg" alt="Airbnb Location View 4">
+                    <img src="abnb5.jpg" alt="Airbnb Location View 5">
+                </div>
+                <p style="margin-top:2rem;"><a href="https://www.airbnb.com/rooms/1167378583824201406" target="_blank" class="btn">View on Airbnb</a></p>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="section-light">
+            <div class="container text-center">
+                <h2>Pricing</h2>
+                <div class="pricing">
+                    <div class="pricing-option">
+                        <h3>Option 1: Standard Tier ($3,333)</h3>
+                        <ul>
+                            <li>• Everything included in retreat</li>
+                            <li>• 2 group calls (before and after)</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn">APPLY</a>
+                    </div>
+                    <div class="pricing-option">
+                        <h3>Option 2: Premium Tier ($5,555)</h3>
+                        <ul>
+                            <li>• Everything included in retreat</li>
+                            <li>• 2 group calls (before and after)</li>
+                            <li>• 2 personal integration calls (1 before & 1 after) with both Cam & Jack together</li>
+                            <li>• 1 month private integration Telegram group chat with 24/7 support</li>
+                        </ul>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn">APPLY</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-dark">
+            <div class="container text-center">
+                <h2>Have questions?</h2>
+                <p>Message Jack on X @jackmoses0 or email <span class="email-address">jackmoses@jackmoses.co</span> and we'll be happy to answer any questions you may have.</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn">APPLY</a>
+            </div>
+        </section>
+
+        <!-- Apply Section -->
+        <section id="apply" class="section-light">
+            <div class="container text-center">
+                <h2>Apply Now</h2>
+                <p>Ready to transform your life? Apply for the Life's Purpose Men's Retreat:</p>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSelVSwQ6bcCT0ljTfY7oURyTZg6EL62oV4ONpz7_ppDrkMBsQ/viewform" class="btn btn-spaced">APPLY HERE</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Life's Purpose Men's Retreat. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+
+        // Close menu when a link is clicked
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('show');
+            }
+        });
+
+        function checkFade() {
+            var elements = document.querySelectorAll('.fade-in');
+            var windowHeight = window.innerHeight;
+
+            elements.forEach(function(element) {
+                var positionFromTop = element.getBoundingClientRect().top;
+
+                if (positionFromTop - windowHeight <= 0) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Run checkFade on scroll and on page load
+        window.addEventListener('scroll', checkFade);
+        window.addEventListener('load', checkFade);
+    </script>
+</body>
+</html>
